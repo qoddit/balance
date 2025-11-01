@@ -2,7 +2,7 @@
 
 ## Overview
 
-Balance provides a comprehensive command-line interface with 37+ commands for encryption, key management, file operations, and system configuration.
+Balance provides a comprehensive command-line interface with 41 commands for encryption, key management, file operations, chat functionality (local and Supabase remote), and system configuration.
 
 ## Command Syntax
 
