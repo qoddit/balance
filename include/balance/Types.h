@@ -121,7 +121,10 @@ enum class AlgorithmType {
     AES256,     // AES-256-CBC
     RSA4096,    // RSA with 4096-bit keys
     Serpent,    // Serpent-256
-    Blowfish    // Blowfish-448
+    Blowfish,   // Blowfish-448
+    ChaCha20,   // ChaCha20-Poly1305 AEAD
+    Twofish,    // Twofish-256
+    CAST256     // CAST-256 (CAST6)
 };
 
 // Algorithm information
