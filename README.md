@@ -6,21 +6,22 @@ A comprehensive C++ encryption toolkit featuring a proprietary hybrid encryption
 
 ### Core Encryption
 - **Proprietary Balance Format:** Hybrid encryption combining XOR + AES-256 + RSA-4096
-- **5 Encryption Algorithms:** Balance, AES-256, RSA-4096, Serpent, Blowfish
+- **8 Encryption Algorithms:** Balance, AES-256, RSA-4096, Serpent, Blowfish, ChaCha20, Twofish, CAST256
 - **FIPS 140-2 Compliance:** Enterprise-grade cryptographic operations
 - **Secure Memory Handling:** Protected key storage with automatic zeroing
 - **Hardware Security Module (HSM) Support:** PKCS#11 interface for enterprise deployments
 
 ### User Interface
 - **Glass-Like GUI:** Minimalistic, modern Qt-based interface with transparency effects
-- **Powerful CLI:** 37+ commands with chaining, piping, and autocomplete
+- **Powerful CLI:** 41 commands with chaining, piping, and autocomplete
 - **Embedded Terminal:** Integrated command-line interface in main window
 - **Algorithm Selector:** Easy switching between encryption methods
 
-### Chat System (Phase 1)
-- **Local Chat:** Persistent message storage with SQLite
+### Chat System
+- **Local & Remote Chat:** Persistent local storage with optional Supabase synchronization
+- **Supabase Integration:** Real-time chat with REST API communication
+- **End-to-End Encryption:** AES-256 encrypted messages for remote chat
 - **Separate Window:** Independent chat interface
-- **Phase 2 Ready:** Supabase integration prepared with E2E encryption hooks
 
 ### Security Features
 - **Tamper Detection:** File integrity verification with SHA-256
