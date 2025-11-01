@@ -327,7 +327,14 @@ Open the chat window.
 
 **Syntax:**
 ```
-chat [--new-window]
+chat [--new-window] [--mode <local|remote>]
+```
+
+**Examples:**
+```bash
+chat
+chat --mode remote
+chat --new-window
 ```
 
 ### chat-close
@@ -336,6 +343,63 @@ Close the chat window.
 **Syntax:**
 ```
 chat-close
+```
+
+### chat-connect
+Connect to Supabase for remote chat functionality.
+
+**Syntax:**
+```
+chat-connect [--url <supabase-url>] [--key <api-key>]
+```
+
+**Examples:**
+```bash
+chat-connect
+chat-connect --url https://your-project.supabase.co --key your-anon-key
+```
+
+**Note:** If URL and key are not provided, uses values from config.json.
+
+### chat-disconnect
+Disconnect from Supabase remote chat.
+
+**Syntax:**
+```
+chat-disconnect
+```
+
+### chat-status
+Show chat connection status and statistics.
+
+**Syntax:**
+```
+chat-status
+```
+
+**Output:**
+```
+Chat Status:
+  Mode: Remote (Supabase)
+  Connection: Connected
+  Messages (local): 42
+  Messages (remote): 38
+  E2E Encryption: Enabled
+  Last sync: 2 minutes ago
+```
+
+### chat-sync
+Manually synchronize local messages with Supabase.
+
+**Syntax:**
+```
+chat-sync [--force]
+```
+
+**Examples:**
+```bash
+chat-sync
+chat-sync --force
 ```
 
 ## Help & Information Commands
