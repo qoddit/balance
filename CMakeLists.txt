@@ -71,43 +71,7 @@ set(CLI_SOURCES
     src/cli/CommandExecutor.cpp
     src/cli/CommandHistory.cpp
     src/cli/Autocomplete.cpp
-    src/cli/commands/EncryptCommand.cpp
-    src/cli/commands/DecryptCommand.cpp
-    src/cli/commands/BatchEncryptCommand.cpp
-    src/cli/commands/BatchDecryptCommand.cpp
-    src/cli/commands/ReencryptCommand.cpp
-    src/cli/commands/EncryptDirCommand.cpp
-    src/cli/commands/DecryptDirCommand.cpp
-    src/cli/commands/SecureDeleteCommand.cpp
-    src/cli/commands/SetAlgorithmCommand.cpp
-    src/cli/commands/ListAlgorithmsCommand.cpp
-    src/cli/commands/AlgorithmInfoCommand.cpp
-    src/cli/commands/BenchmarkCommand.cpp
-    src/cli/commands/VerifyCommand.cpp
-    src/cli/commands/InspectCommand.cpp
-    src/cli/commands/CompareCommand.cpp
-    src/cli/commands/KeygenCommand.cpp
-    src/cli/commands/KeystoreCommand.cpp
-    src/cli/commands/ImportKeyCommand.cpp
-    src/cli/commands/ExportKeyCommand.cpp
-    src/cli/commands/ChangePasswordCommand.cpp
-    src/cli/commands/DeriveKeyCommand.cpp
-    src/cli/commands/ListCommand.cpp
-    src/cli/commands/InfoCommand.cpp
-    src/cli/commands/SearchCommand.cpp
-    src/cli/commands/WipeCommand.cpp
-    src/cli/commands/BackupCommand.cpp
-    src/cli/commands/ConfigCommand.cpp
-    src/cli/commands/HistoryCommand.cpp
-    src/cli/commands/AliasCommand.cpp
-    src/cli/commands/ExportConfigCommand.cpp
-    src/cli/commands/ImportConfigCommand.cpp
-    src/cli/commands/ChatCommand.cpp
-    src/cli/commands/ChatCloseCommand.cpp
-    src/cli/commands/HelpCommand.cpp
-    src/cli/commands/VersionCommand.cpp
-    src/cli/commands/StatusCommand.cpp
-    src/cli/commands/DiagnosticsCommand.cpp
+    src/cli/commands/BasicCommands.cpp
 )
 
 # Source files - GUI
