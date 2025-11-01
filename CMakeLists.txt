@@ -15,6 +15,7 @@ set(CMAKE_AUTOUIC ON)
 find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets Qml Quick)
 find_package(OpenSSL 3.0 REQUIRED)
 find_package(SQLite3 REQUIRED)
+find_package(CURL REQUIRED)
 
 # Compiler flags
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
