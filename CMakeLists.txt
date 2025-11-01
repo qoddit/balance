@@ -45,6 +45,9 @@ set(CORE_ENCRYPTION_SOURCES
     src/core/encryption/RSAEncryption.cpp
     src/core/encryption/SerpentEncryption.cpp
     src/core/encryption/BlowfishEncryption.cpp
+    src/core/encryption/ChaCha20Encryption.cpp
+    src/core/encryption/TwofishEncryption.cpp
+    src/core/encryption/CAST256Encryption.cpp
 )
 
 # Source files - Core Security
