@@ -93,6 +93,7 @@ set(UTILS_SOURCES
     src/utils/Logger.cpp
     src/utils/Config.cpp
     src/utils/Validators.cpp
+    src/utils/HttpClient.cpp
 )
 
 # QML resources
