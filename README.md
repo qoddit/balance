@@ -113,6 +113,9 @@ balance/
 - **RSA-4096:** Asymmetric encryption with OAEP padding
 - **Serpent-256:** AES finalist with high security margin
 - **Blowfish-448:** Fast encryption for legacy compatibility
+- **ChaCha20-Poly1305:** AEAD cipher with authentication
+- **Twofish-256:** AES finalist, highly secure symmetric cipher
+- **CAST-256:** CAST6 symmetric encryption (256-bit key)
 
 ## CLI Commands
 
