@@ -1,0 +1,44 @@
+{
+  "application": {
+    "name": "Balance",
+    "version": "1.0.0"
+  },
+  "encryption": {
+    "default_algorithm": "balance",
+    "pbkdf2_iterations": 100000,
+    "max_memory_usage": 209715200,
+    "streaming_threshold": 104857600
+  },
+  "keystore": {
+    "path": "./keys",
+    "type": "software"
+  },
+  "database": {
+    "path": "./balance.db"
+  },
+  "security": {
+    "enable_fips": false,
+    "enable_audit_log": true,
+    "secure_delete_passes": 3,
+    "tamper_detection": true
+  },
+  "supabase": {
+    "enabled": false,
+    "url": "",
+    "anon_key": "",
+    "encryption": {
+      "enabled": true,
+      "algorithm": "aes-256-gcm"
+    }
+  },
+  "logging": {
+    "level": "info",
+    "file": "balance.log",
+    "console_output": true
+  },
+  "ui": {
+    "theme": "glass",
+    "opacity": 0.95,
+    "blur_radius": 10
+  }
+}
