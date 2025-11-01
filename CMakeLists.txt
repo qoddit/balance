@@ -128,6 +128,7 @@ target_link_libraries(balance PRIVATE
     OpenSSL::SSL
     OpenSSL::Crypto
     SQLite::SQLite3
+    CURL::libcurl
 )
 
 # Platform-specific libraries
