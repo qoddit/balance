@@ -1,6 +1,6 @@
-# Security model
+# security model
 
-## Identity and authentication
+## identity and authentication
 
 each account has an Ed25519 identity key. the private key is stored only inside the encrypted local vault. the login password is not persisted as plaintext. A Scrypt-derived master key decrypts the vault.
 
