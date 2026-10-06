@@ -1,44 +1,44 @@
 # balance
 
-> Privacy-first, terminal-native encrypted messaging in C17.
+> private, terminal-native encrypted messaging in C17.
 
-**Current release:** `beta-0.3.1`
+**current release:** `beta-0.3.1`
 
 `balance` is a curses-based CLI messenger built around a local-first security model. The default chat mode is **volatile peer-to-peer**: messages are encrypted before transmission, no cloud service is contacted, and the volatile transcript is discarded when the tunnel closes. Cloud persistence is an explicit opt-in.
 
 [![CI](https://github.com/qoddit/balance/actions/workflows/ci.yml/badge.svg)](https://github.com/qoddit/balance/actions/workflows/ci.yml)
 
-## Highlights
+## highlights
 
-- Native C17 TUI built around curses/ncurses.
-- Fixed bottom composer with a scrollable chat viewport.
-- Pinned accept/reject actions above the composer.
-- Tab autocomplete for commands, friends, and pending request IDs.
-- Command history with Up/Down on home screens.
-- Authenticated Ed25519 peer identities.
-- Ephemeral X25519 session keys.
+- native C17 TUI built around curses/ncurses.
+- fixed bottom composer with a scrollable chat viewport.
+- pinned accept/reject actions above the composer.
+- tab autocomplete for commands, friends, and pending request IDs.
+- command history with Up/Down on home screens.
+- authenticated Ed25519 peer identities.
+- ephemeral X25519 session keys.
 - ChaCha20-Poly1305 encrypted application frames.
-- Strict monotonic sequence checking for replay/out-of-order rejection.
-- Encrypted local vault and optional encrypted chat history.
-- Volatile mode that never invokes the cloud backend.
-- Recipient-approved encrypted peer-to-peer file transfer.
-- Transfer SHA-256 verification and safe non-overwriting finalization.
-- Live transfer percentage and throughput display.
-- Optional self-hosted encrypted blob persistence over HTTPS.
+- strict monotonic sequence checking for replay/out-of-order rejection.
+- encrypted local vault and optional encrypted chat history.
+- volatile mode that never invokes the cloud backend.
+- recipient-approved encrypted peer-to-peer file transfer.
+- transfer SHA-256 verification and safe non-overwriting finalization.
+- live transfer percentage and throughput display.
+- optional self-hosted encrypted blob persistence over HTTPS.
 - `fetch` dashboard with the balance logo, clock, version, memory, network counters, and traffic graph.
-- No telemetry, analytics, advertising, or application logging subsystem.
+- no telemetry, analytics, advertising, or application logging subsystem.
 
-## Quick start
+## quick start
 
 ### macOS — Apple Silicon / Intel
 
-Install dependencies:
+install dependencies:
 
 ```bash
 brew install cmake openssl@3 curl ncurses
 ```
 
-Extract the release archive, then build:
+extract the release archive, then build:
 
 ```bash
 cmake -S . -B build \
@@ -49,7 +49,7 @@ cmake --build build -j
 ctest --test-dir build --output-on-failure
 ```
 
-Run:
+run:
 
 ```bash
 ./build/balance
@@ -65,11 +65,11 @@ ctest --test-dir build --output-on-failure
 ./build/balance
 ```
 
-## First run
+## first run
 
 `balance` registers the local account on first use. Credentials are used to derive the key that unlocks the encrypted local vault; the plaintext password is not persisted.
 
-After login, use `?` to see the command guide.
+after login, use `?` to see the command guide.
 
 ```text
 balance  beta-0.3.1                              alice [volatile]
@@ -82,9 +82,9 @@ balance  beta-0.3.1                              alice [volatile]
  balance ›
 ```
 
-## Usage
+## usage
 
-### Home commands
+### home commands
 
 | Command | Example | Purpose |
 |---|---|---|
@@ -128,11 +128,11 @@ balance  beta-0.3.1                              alice [volatile]
 | `clear` | `clear` | Clear the current volatile UI view. |
 | `quit` | `quit` | Exit `balance`. |
 
-There are intentionally more than 30 commands in the registry so the help system, autocomplete, aliases, and future command additions all share one source of truth.
+there are intentionally more than 30 commands in the registry so the help system, autocomplete, aliases, and future command additions all share one source of truth.
 
-### Chat
+### chat
 
-Inside a chat, normal text is sent as an encrypted message. Commands remain available when useful:
+inside a chat, normal text is sent as an encrypted message. commands remain available when useful:
 
 ```text
 ?                     help
@@ -148,7 +148,7 @@ clear                 clear the visible volatile transcript
 quit                  exit balance
 ```
 
-### Keyboard shortcuts
+### keyboard shortcuts
 
 - `Tab` — autocomplete commands/friends/request IDs.
 - `F1` — help.
@@ -159,27 +159,27 @@ quit                  exit balance
 - `Esc` — return from the dashboard.
 - Mouse click on a pinned action — fills the action command into the composer; it does not silently execute it.
 
-## Dashboard
+## dashboard
 
 `fetch` opens a live curses dashboard designed in the style of a terminal system fetcher, but it reports `balance`-specific information instead of generic host data.
 
 ```text
- .:     .    ..          time       22:41
+  .:     .    ..            -----------------------------
 .:--          --:.-         time       2026-10-06 22:41:12
 :-==         .:-:...        version    beta-0.3.1
 .---=:      .---:.          memory     8.4 MiB peak RSS
-   ::.--::.::::.             tx rate    12.1 KiB/s
+   ::.--::.::::.            tx rate    12.1 KiB/s
       ¨’::…::               rx rate    41.7 KiB/s
-                             tx frames  83
-                             rx frames  121
-                             peers      2
-                             tunnels    1
+                            tx frames  83
+                            rx frames  121
+                            peers      2
+                            tunnels    1
 
-                             traffic  # RX  + TX
-                             ······++###*****++··
+                            traffic  # RX  + TX
+                            ------------------------------
 `
 
-The dashboard tracks at least these network statistics:
+the dashboard tracks at least these network statistics:
 
 - transmitted bytes and current transmit rate;
 - received bytes and current receive rate;
@@ -188,11 +188,11 @@ The dashboard tracks at least these network statistics:
 - active peers;
 - active tunnels.
 
-The graph is a rolling RX/TX throughput graph sampled by the TUI.
+the graph is a rolling RX/TX throughput graph sampled by the TUI.
 
-## Volatile mode
+## volatile mode
 
-Volatile mode is the default and is the safest operating mode provided by `balance`.
+volatile mode is the default and is the safest operating mode provided by `balance`.
 
 ```text
 Alice ── authenticated handshake ── Bob
@@ -203,44 +203,44 @@ cloud: not contacted
 chat history: memory only
 ```
 
-The tunnel handshake authenticates the peer's long-term Ed25519 identity and derives ephemeral session encryption keys with X25519/HKDF.
+the tunnel handshake authenticates the peer's long-term Ed25519 identity and derives ephemeral session encryption keys with X25519/HKDF.
 
-When the tunnel is closed or the peer disconnects:
+ehen the tunnel is closed or the peer disconnects:
 
 - the volatile transcript is cleared from the UI state;
 - unfinished `.part` file transfers are deleted;
 - the tunnel state is discarded;
 - no cloud synchronization is performed in volatile mode.
 
-Completed received files remain in `transfers/<local-user>--<peer>/`.
+completed received files remain in `transfers/<local-user>--<peer>/`.
 
-Application-layer encryption does **not** hide network metadata such as IP addresses, connection timing, traffic volume, or approximate packet sizes.
+application-layer encryption does **not** hide network metadata such as IP addresses, connection timing, traffic volume, or approximate packet sizes.
 
-## File transfer
+## file transfer
 
-File transfer is request-based and peer-to-peer.
+file transfer is request-based and peer-to-peer.
 
-Sender:
+sender:
 
 ```text
 file ~/Documents/report.pdf
 ```
 
-Recipient sees a pinned request and can select **accept** or **reject**. The action fills the exact command into the prompt.
+recipient sees a pinned request and can select **accept** or **reject**. The action fills the exact command into the prompt.
 
-Accepted transfers display percentage and throughput:
+accepted transfers display percentage and throughput:
 
 ```text
 report.pdf  [###############-----] 76.3% · 18.4 MiB/s
 ```
 
-The receiver stages data in a `0600` `.part` file, verifies the expected size and SHA-256 digest, then finalizes to a non-overwriting filename.
+the receiver stages data in a `0600` `.part` file, verifies the expected size and SHA-256 digest, then finalizes to a non-overwriting filename.
 
-## Cloud mode
+## cloud mode
 
-Cloud persistence is opt-in. The included backend is a small self-hosted blob service.
+cloud persistence is opt-in. the included backend is a small self-hosted blob service.
 
-The backend receives an **already encrypted** history object. It does not receive the plaintext transcript or the vault key.
+the backend receives an **already encrypted** history object. it does not receive the plaintext transcript or the vault key.
 
 ```text
 plaintext chat
@@ -252,19 +252,19 @@ self-hosted blob server
 opaque ciphertext
 ```
 
-Remote cloud URLs must use HTTPS. Plain HTTP is permitted only for `localhost`/`127.0.0.1` development testing.
+remote cloud URLs must use HTTPS. Plain HTTP is permitted only for `localhost`/`127.0.0.1` development testing.
 
 Supabase and Google Drive are not implemented providers in this release. The cloud boundary is intentionally isolated so additional providers can be added without redesigning the cryptographic protocol.
 
-## Local storage
+## local storage
 
-The user vault is stored under the platform's local application-data directory and is encrypted with a key derived from the account password. The code enforces restrictive filesystem permissions for the vault/history files and local transfer directories.
+the user vault is stored under the platform's local application-data directory and is encrypted with a key derived from the account password. the code enforces restrictive filesystem permissions for the vault/history files and local transfer directories.
 
 `doctor` checks these permissions without printing secret material.
 
-## Security model
+## security model
 
-The project separates these layers:
+the project separates these layers:
 
 ```text
 ui.c       curses rendering, commands, autocomplete, actions
@@ -276,29 +276,29 @@ cloud.c    opaque encrypted history upload/download
 server.c   storage-only blob backend
 ```
 
-### Authentication
+### authentication
 
-- Local password unlocks the encrypted vault.
+- local password unlocks the encrypted vault.
 - Ed25519 identifies a peer.
-- Friend keys are pinned after explicit acceptance.
-- Incoming tunnel requests are rejected if the identity does not match the pinned friend key.
+- friend keys are pinned after explicit acceptance.
+- incoming tunnel requests are rejected if the identity does not match the pinned friend key.
 
-### Session confidentiality
+### session confidentiality
 
-- Ephemeral X25519 is used for session key agreement.
+- ephemeral X25519 is used for session key agreement.
 - HKDF derives directional session material.
 - ChaCha20-Poly1305 provides authenticated encryption.
-- Frame sequence numbers must advance monotonically.
+- frame sequence numbers must advance monotonically.
 
 ### Privacy
 
-There is no telemetry or analytics subsystem. The cloud is disabled by default. Volatile chats do not write their transcript to persistent history.
+there is no telemetry or analytics subsystem. The cloud is disabled by default. Volatile chats do not write their transcript to persistent history.
 
-This project has not been independently audited. Passing tests do not constitute a cryptographic audit or a guarantee against previously unknown implementation vulnerabilities.
+this project has not been independently audited. Passing tests do not constitute a cryptographic audit or a guarantee against previously unknown implementation vulnerabilities.
 
-## Self-hosted server
+## self-hosted server
 
-Development-only server:
+development-only server:
 
 ```bash
 ./build/balance-server \
@@ -307,13 +307,13 @@ Development-only server:
   --token CHANGE_ME
 ```
 
-For remote deployments, terminate TLS in a hardened reverse proxy, restrict network access, rotate the bearer token, and keep the storage directory private.
+for remote deployments, terminate TLS in a hardened reverse proxy, restrict network access, rotate the bearer token, and keep the storage directory private.
 
-The server stores opaque encrypted blobs and does not decrypt chat content.
+the server stores opaque encrypted blobs and does not decrypt chat content.
 
-## Build and test
+## build and test
 
-Strict local build:
+strict local build:
 
 ```bash
 cmake -S . -B build-werror \
@@ -323,7 +323,7 @@ cmake --build build-werror -j
 ctest --test-dir build-werror --output-on-failure
 ```
 
-Sanitizer build:
+sanitizer build:
 
 ```bash
 cmake -S . -B build-asan \
@@ -334,21 +334,21 @@ ASAN_OPTIONS=detect_leaks=1:halt_on_error=1 \
   ctest --test-dir build-asan --output-on-failure
 ```
 
-The release validation also includes a curses PTY smoke test for registration/login, help, dashboard rendering, and clean exit.
+the release validation also includes a curses PTY smoke test for registration/login, help, dashboard rendering, and clean exit.
 
-## Version control and releases
+## version control and releases
 
 `balance` uses Git with explicit release metadata:
 
 - `VERSION` contains the product version, currently `beta-0.3.1`.
 - `CMakeLists.txt` carries the matching SemVer core `0.3.1`.
 - `CHANGELOG.md` records release changes.
-- Releases are tagged as `v0.3.1-beta`.
+- releases are tagged as `v0.3.1-beta`.
 - `.github/workflows/ci.yml` builds/tests Linux and macOS.
 - `.github/workflows/release.yml` packages tagged releases.
 - `scripts/release.sh` validates the version/tag and creates a source archive plus SHA-256 checksum.
 
-Recommended workflow:
+recommended workflow:
 
 ```bash
 git checkout -b feature/my-change
@@ -361,13 +361,13 @@ git commit -m "feat: describe the change"
 git push -u origin feature/my-change
 ```
 
-A release is created only from a clean tagged commit:
+a release is created only from a clean tagged commit:
 
 ```bash
 ./scripts/release.sh v0.3.1-beta
 ```
 
-## Repository layout
+## repository layout
 
 ```text
 balance/
@@ -395,8 +395,8 @@ balance/
 └── README.md
 ```
 
-## Status
+## status
 
-`beta-0.3.1` is a functional beta release. The local encrypted account/vault path, P2P authenticated tunnel, encrypted chat, request-based file transfer, curses command UI, encrypted self-hosted cloud blob path, and test suite are active.
+`beta-0.3.1` is a functional beta release. the local encrypted account/vault path, P2P authenticated tunnel, encrypted chat, request-based file transfer, curses command UI, encrypted self-hosted cloud blob path, and test suite are active.
 
-The release deliberately does not claim anonymity, third-party cryptographic audit, or fully implemented Supabase/Google Drive adapters.
+the release deliberately does not claim anonymity, third-party cryptographic audit, or fully implemented Supabase/Google Drive adapters.
