@@ -4,7 +4,7 @@
 
 **current release:** `beta-0.3.3`
 
-`balance` is a curses-based CLI messenger built around a local-first security model. The default chat mode is **volatile peer-to-peer**: messages are encrypted before transmission, no cloud service is contacted, and the volatile transcript is discarded when the tunnel closes. Cloud persistence is an explicit opt-in.
+`balance` is a curses-based CLI messenger built around a local-first security model. the default chat mode is **volatile peer-to-peer**: messages are encrypted before transmission, no cloud service is contacted, and the volatile transcript is discarded when the tunnel closes. Cloud persistence is an explicit opt-in.
 
 [![CI](https://github.com/qoddit/balance/actions/workflows/ci.yml/badge.svg)](https://github.com/qoddit/balance/actions/workflows/ci.yml)
 
