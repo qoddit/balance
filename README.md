@@ -353,6 +353,6 @@ balance/
 
 ## status
 
-`beta-0.3.1` is a functional beta release. the local encrypted account/vault path, P2P authenticated tunnel, encrypted chat, request-based file transfer, curses command UI, encrypted self-hosted cloud blob path, and test suite are active.
+`beta-0.3.3` is a functional beta release. the local encrypted account/vault path, P2P authenticated tunnel, encrypted chat, request-based file transfer, curses command UI, encrypted self-hosted cloud blob path, and test suite are active.
 
 the release deliberately does not claim anonymity, third-party cryptographic audit, or fully implemented Supabase/Google Drive adapters.
