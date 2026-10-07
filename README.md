@@ -2,7 +2,7 @@
 
 > private, terminal-native encrypted messaging in C17.
 
-**current release:** `beta-0.3.1`
+**current release:** `beta-0.3.3`
 
 `balance` is a curses-based CLI messenger built around a local-first security model. The default chat mode is **volatile peer-to-peer**: messages are encrypted before transmission, no cloud service is contacted, and the volatile transcript is discarded when the tunnel closes. Cloud persistence is an explicit opt-in.
 
