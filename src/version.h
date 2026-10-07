@@ -1,5 +1,5 @@
 #ifndef BALANCE_VERSION_H
 #define BALANCE_VERSION_H
-#define BALANCE_VERSION "beta-0.3.1"
-#define BALANCE_PROJECT_VERSION "0.3.1"
+#define BALANCE_VERSION "beta-0.3.3"
+#define BALANCE_PROJECT_VERSION "0.3.2"
 #endif

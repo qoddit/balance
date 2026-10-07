@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(balance VERSION 0.3.1 LANGUAGES C)
+project(balance VERSION 0.3.3 LANGUAGES C)
 
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED ON)

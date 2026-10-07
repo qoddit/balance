@@ -21,12 +21,12 @@
 
 static void test_commands(void){
     size_t count=0; const BalanceCommandSpec *specs=balance_command_specs(&count);
-    assert(specs && count>=30U);
-    assert(strcmp(BALANCE_VERSION,"beta-0.3.1")==0);
+    assert(specs && count>=28U);
+    assert(strcmp(BALANCE_VERSION,"beta-0.3.3")==0);
     assert(balance_command_lookup("?")!=NULL);
     assert(balance_command_lookup("help")!=NULL);
-    assert(balance_command_lookup("fetch")!=NULL);
-    assert(balance_command_lookup("dashboard")!=NULL);
+    assert(balance_command_lookup("fetch")==NULL);
+    assert(balance_command_lookup("dashboard")==NULL);
     assert(balance_command_lookup("logo")==NULL);
     assert(balance_command_lookup("fingerprint")!=NULL);
     assert(balance_command_lookup("xfer")!=NULL);

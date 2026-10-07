@@ -2,11 +2,10 @@
 #include <string.h>
 
 static const BalanceCommandSpec COMMANDS[] = {
-    {"?",        "help",     "? [command]",                    "show command help",                         BALANCE_SCOPE_BOTH},
+    {"?",        "help",     "? [command]",                    "show command help; append -h to any command", BALANCE_SCOPE_BOTH},
     {"version",  "ver",      "version",                        "show product version",                     BALANCE_SCOPE_BOTH},
     {"about",    NULL,        "about",                           "show product/security summary",             BALANCE_SCOPE_BOTH},
     {"status",   "st",       "status",                          "show session, tunnel and cloud status",     BALANCE_SCOPE_BOTH},
-    {"fetch",    "dashboard", "fetch",                          "open the balance system fetch dashboard",     BALANCE_SCOPE_BOTH},
     {"whoami",   "me",       "whoami",                          "show the current username",                 BALANCE_SCOPE_BOTH},
     {"endpoint", "ep",       "endpoint",                        "show the local listening endpoint",         BALANCE_SCOPE_BOTH},
     {"key",      "fingerprint", "key",                          "show the local Ed25519 fingerprint",        BALANCE_SCOPE_BOTH},
