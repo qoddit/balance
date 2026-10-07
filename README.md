@@ -67,7 +67,7 @@ ctest --test-dir build --output-on-failure
 
 ## first run
 
-`balance` registers the local account on first use. Credentials are used to derive the key that unlocks the encrypted local vault; the plaintext password is not persisted.
+`balance` registers the local account on first use. credentials are used to derive the key that unlocks the encrypted local vault; the plaintext password is not persisted.
 
 after login, use `?` to see the command guide.
 
@@ -182,7 +182,7 @@ sender:
 file ~/Documents/report.pdf
 ```
 
-recipient sees a pinned request and can select **accept** or **reject**. The action fills the exact command into the prompt.
+recipient sees a pinned request and can select **accept** or **reject**. the action fills the exact command into the prompt.
 
 accepted transfers display percentage and throughput:
 
@@ -210,7 +210,7 @@ opaque ciphertext
 
 remote cloud URLs must use HTTPS. Plain HTTP is permitted only for `localhost`/`127.0.0.1` development testing.
 
-Supabase and Google Drive are not implemented providers in this release. The cloud boundary is intentionally isolated so additional providers can be added without redesigning the cryptographic protocol.
+Supabase and Google Drive are not implemented providers in this release. the cloud boundary is intentionally isolated so additional providers can be added without redesigning the cryptographic protocol.
 
 ## local storage
 
@@ -246,11 +246,11 @@ server.c   storage-only blob backend
 - ChaCha20-Poly1305 provides authenticated encryption.
 - frame sequence numbers must advance monotonically.
 
-### Privacy
+### privacy
 
-there is no telemetry or analytics subsystem. The cloud is disabled by default. Volatile chats do not write their transcript to persistent history.
+there is no telemetry or analytics subsystem. the cloud is disabled by default. Volatile chats do not write their transcript to persistent history.
 
-this project has not been independently audited. Passing tests do not constitute a cryptographic audit or a guarantee against previously unknown implementation vulnerabilities.
+this project has not been independently audited. passing tests do not constitute a cryptographic audit or a guarantee against previously unknown implementation vulnerabilities.
 
 ## self-hosted server
 
