@@ -159,53 +159,9 @@ quit                  exit balance
 - `Esc` — return from the dashboard.
 - Mouse click on a pinned action — fills the action command into the composer; it does not silently execute it.
 
-## dashboard
-
-`fetch` opens a live curses dashboard designed in the style of a terminal system fetcher, but it reports `balance`-specific information instead of generic host data.
-
-```text
-  .:     .    ..            -----------------------------
-.:--          --:.-         time       2026-10-06 22:41:12
-:-==         .:-:...        version    beta-0.3.1
-.---=:      .---:.          memory     8.4 MiB peak RSS
-   ::.--::.::::.            tx rate    12.1 KiB/s
-      ¨’::…::               rx rate    41.7 KiB/s
-                            tx frames  83
-                            rx frames  121
-                            peers      2
-                            tunnels    1
-
-                            traffic  # RX  + TX
-                            ------------------------------
-`
-
-the dashboard tracks at least these network statistics:
-
-- transmitted bytes and current transmit rate;
-- received bytes and current receive rate;
-- transmitted frame count;
-- received frame count;
-- active peers;
-- active tunnels.
-
-the graph is a rolling RX/TX throughput graph sampled by the TUI.
-
-## volatile mode
-
-volatile mode is the default and is the safest operating mode provided by `balance`.
-
-```text
-Alice ── authenticated handshake ── Bob
-  │                                  │
-  └── ChaCha20-Poly1305 tunnel ─────┘
-
-cloud: not contacted
-chat history: memory only
-```
-
 the tunnel handshake authenticates the peer's long-term Ed25519 identity and derives ephemeral session encryption keys with X25519/HKDF.
 
-ehen the tunnel is closed or the peer disconnects:
+when the tunnel is closed or the peer disconnects:
 
 - the volatile transcript is cleared from the UI state;
 - unfinished `.part` file transfers are deleted;
