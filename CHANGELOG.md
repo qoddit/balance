@@ -1,8 +1,12 @@
+# Changelog
+
 ## Unreleased
 
-- `fetch`: removed the redundant `BALANCE STATUS` heading so the statistics panel starts directly beside the ASCII artwork.
-
-# Changelog
+- Expand cross-platform build instructions for macOS, major Linux distributions, Alpine, and Windows via WSL2.
+- Add a Pinokio launcher with explicit build and launch actions; the launcher does not install system packages or claim native Windows support.
+- Document a staged roadmap for turning the internal C modules into a reusable library for future GUI frontends.
+- Clarify that the future public library API is not yet stable or implemented.
+- `fetch`: remove the redundant `BALANCE STATUS` heading so the statistics panel starts directly beside the ASCII artwork.
 
 ## beta-0.3.1 fetch command polish
 

@@ -2,8 +2,7 @@
 
 > private, terminal-native encrypted messaging in C17.
 
-**current release:** `beta-0.3.3`
-
+**current release:** `beta-0.3.4`
 `balance` is a curses-based CLI messenger built around a local-first security model. the default chat mode is **volatile peer-to-peer**: messages are encrypted before transmission, no cloud service is contacted, and the volatile transcript is discarded when the tunnel closes. Cloud persistence is an explicit opt-in.
 
 [![CI](https://github.com/qoddit/balance/actions/workflows/ci.yml/badge.svg)](https://github.com/qoddit/balance/actions/workflows/ci.yml)
@@ -30,40 +29,51 @@
 
 ## quick start
 
-### macOS — Apple Silicon / Intel
+For a full platform matrix, troubleshooting, strict builds, and sanitizer builds, see [`docs/BUILD.md`](docs/BUILD.md). This project uses C17, CMake, OpenSSL 3, libcurl, POSIX threads, and curses/ncurses.
 
-install dependencies:
+### macOS — Apple Silicon and Intel
+
+Install Xcode Command Line Tools and Homebrew, then install the dependencies:
 
 ```bash
+xcode-select --install  # only if command-line tools are not already installed
 brew install cmake openssl@3 curl ncurses
 ```
 
-extract the release archive, then build:
+From the repository root:
 
 ```bash
 cmake -S . -B build \
+  -DCMAKE_BUILD_TYPE=Release \
   -DOPENSSL_ROOT_DIR="$(brew --prefix openssl@3)" \
-  -DCMAKE_PREFIX_PATH="$(brew --prefix openssl@3);$(brew --prefix curl);$(brew --prefix ncurses)"
-
-cmake --build build -j
-ctest --test-dir build --output-on-failure
-```
-
-run:
-
-```bash
-./build/balance
-```
-
-### Arch Linux
-
-```bash
-sudo pacman -S --needed base-devel cmake openssl curl ncurses
-cmake -S . -B build
-cmake --build build -j
+  -DOPENSSL_INCLUDE_DIR="$(brew --prefix openssl@3)/include" \
+  -DOPENSSL_CRYPTO_LIBRARY="$(brew --prefix openssl@3)/lib/libcrypto.dylib" \
+  -DCMAKE_PREFIX_PATH="$(brew --prefix curl);$(brew --prefix ncurses)"
+cmake --build build --parallel
 ctest --test-dir build --output-on-failure
 ./build/balance
 ```
+
+If Homebrew uses a different library filename or prefix on your machine, inspect `brew --prefix openssl@3` and pass the actual OpenSSL library path. Do not reuse a `build/` directory copied from Linux or another Mac architecture; delete it and configure again on the target machine.
+
+### Linux
+
+Install the compiler toolchain, CMake, OpenSSL 3 development headers, libcurl development headers, and ncurses development headers using your distribution's package manager. Examples for common distributions are in [`docs/BUILD.md`](docs/BUILD.md).
+
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --parallel
+ctest --test-dir build --output-on-failure
+./build/balance
+```
+
+### Windows
+
+Native Windows/MSVC is **not currently a supported build target** because Balance depends on POSIX sockets and curses. On Windows, use **WSL2 with a supported Linux distribution** (for example Ubuntu), install the Linux dependencies inside WSL, and build/run from the WSL filesystem. See [`docs/BUILD.md`](docs/BUILD.md). A Windows terminal emulator can display the WSL terminal, but that does not make the executable a native Windows binary.
+
+### Pinokio
+
+A Pinokio launcher is included for macOS and Linux systems where the native C build dependencies are installed. Open this repository as a local Pinokio app and choose **Install / Build**, then **Launch Balance**. Pinokio automates the CMake steps; it does not replace the compiler, OpenSSL, curl, or curses dependencies. Windows users should follow the WSL2 instructions instead. See [`docs/PINOKIO.md`](docs/PINOKIO.md).
 
 ## first run
 
@@ -72,7 +82,7 @@ ctest --test-dir build --output-on-failure
 after login, use `?` to see the command guide.
 
 ```text
-balance  beta-0.3.1                              alice [volatile]
+balance  beta-0.3.4                             alice [volatile]
 ────────────────────────────────────────────────────────────────────────────
 
   type ? for help; Tab completes commands and friends
@@ -323,6 +333,12 @@ a release is created only from a clean tagged commit:
 ./scripts/release.sh v0.3.1-beta
 ```
 
+## building on Balance as a library
+
+Balance is currently a standalone executable, not yet a supported reusable library. Its protocol, crypto, storage, and networking code are separated into C modules, which gives the project a useful starting point for a future library API. The intended direction is to expose a small, documented C API that other GUI projects can link against while keeping the terminal UI as one optional frontend.
+
+The API design, ABI/versioning policy, ownership rules, event model, and build/install targets still need to be formalized before consumers should depend on these internals. See [`docs/LIBRARY_ROADMAP.md`](docs/LIBRARY_ROADMAP.md) for the proposed migration steps and architectural constraints. For now, external projects should not include internal headers or rely on private structs as a stable interface.
+
 ## repository layout
 
 ```text
@@ -353,6 +369,6 @@ balance/
 
 ## status
 
-`beta-0.3.3` is a functional beta release. the local encrypted account/vault path, P2P authenticated tunnel, encrypted chat, request-based file transfer, curses command UI, encrypted self-hosted cloud blob path, and test suite are active.
+`beta-0.3.4` is a functional beta release. the local encrypted account/vault path, P2P authenticated tunnel, encrypted chat, request-based file transfer, curses command UI, encrypted self-hosted cloud blob path, and test suite are active.
 
 the release deliberately does not claim anonymity, third-party cryptographic audit, or fully implemented Supabase/Google Drive adapters.

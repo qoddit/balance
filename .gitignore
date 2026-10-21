@@ -47,3 +47,4 @@ compile_commands.json
 *.log
 *.tmp
 *.bak
+docs/LIBRARY_ROADMAP.md
