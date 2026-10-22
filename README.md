@@ -2,7 +2,7 @@
 
 > private, terminal-native encrypted messaging in C17.
 
-**current release:** `beta-0.3.4`
+**current release:** `beta-0.3.3`
 `balance` is a curses-based CLI messenger built around a local-first security model. the default chat mode is **volatile peer-to-peer**: messages are encrypted before transmission, no cloud service is contacted, and the volatile transcript is discarded when the tunnel closes. Cloud persistence is an explicit opt-in.
 
 [![CI](https://github.com/qoddit/balance/actions/workflows/ci.yml/badge.svg)](https://github.com/qoddit/balance/actions/workflows/ci.yml)
@@ -82,7 +82,7 @@ A Pinokio launcher is included for macOS and Linux systems where the native C bu
 after login, use `?` to see the command guide.
 
 ```text
-balance  beta-0.3.4                             alice [volatile]
+balance  beta-0.3.3                             alice [volatile]
 ────────────────────────────────────────────────────────────────────────────
 
   type ? for help; Tab completes commands and friends
@@ -369,6 +369,6 @@ balance/
 
 ## status
 
-`beta-0.3.4` is a functional beta release. the local encrypted account/vault path, P2P authenticated tunnel, encrypted chat, request-based file transfer, curses command UI, encrypted self-hosted cloud blob path, and test suite are active.
+`beta-0.3.3` is a functional beta release. the local encrypted account/vault path, P2P authenticated tunnel, encrypted chat, request-based file transfer, curses command UI, encrypted self-hosted cloud blob path, and test suite are active.
 
 the release deliberately does not claim anonymity, third-party cryptographic audit, or fully implemented Supabase/Google Drive adapters.
