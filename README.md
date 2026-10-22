@@ -1,7 +1,3 @@
-> private, terminal-native encrypted messaging in C17.
-
-<img width="1470" height="956" alt="balance tui" src="https://github.com/user-attachments/assets/6cfc632c-9255-4a0b-ac4c-155458bd542d" />
-
 # balance
 
 **current release:** `beta-0.3.3`
@@ -10,6 +6,8 @@
 visit or download the [balance vault](https://github.com/qoddit/balancevault) to see the full documented project structure.
 
 [![CI](https://github.com/qoddit/balance/actions/workflows/ci.yml/badge.svg)](https://github.com/qoddit/balance/actions/workflows/ci.yml)
+
+<img width="1470" height="956" alt="balance tui" src="https://github.com/user-attachments/assets/6cfc632c-9255-4a0b-ac4c-155458bd542d" />
 
 ## highlights
 
