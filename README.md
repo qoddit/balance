@@ -7,14 +7,13 @@ visit or download the [balance vault](https://github.com/qoddit/balancevault) to
 
 <p align="center">
   <p align="center">
-  <a href="https://github.com/qoddit/balance/actions/workflows/ci.yml"><img alt="CI status" src="https://img.shields.io/github/actions/workflow/status/qoddit/balance/ci.yml?branch=main&amp;style=for-the-badge&amp;label=CI&amp;logo=github"></a>
+  <a href="https://github.com/qoddit/balance/actions/workflows/ci.yml"><img alt="CI status" src="https://img.shields.io/github/actions/workflow/status/qoddit/balance/ci.yml?branch=main&amp;style=for-the-badge&amp;label=CI&labelColor=000000&amp;logo=github"></a>
   <a
-<a href="https://github.com/qoddit/balance/actions/workflows/release.yml"><img alt="Release workflow" src="https://img.shields.io/github/actions/workflow/status/qoddit/balance/release.yml?style=for-the-badge&amp;label=release&amp;logo=github"></a>
-  <a href="https://github.com/qoddit/balance/releases"><img alt="GitHub releases" src="https://img.shields.io/github/v/release/qoddit/balance?include_prereleases&amp;style=for-the-badge&amp;label=release"></a>
-  <a href="https://github.com/qoddit/balance/releases"><img alt="GitHub releases" src="https://img.shields.io/badge/releases-GitHub-181717?logo=github&amp;style=for-the-badge" height="28"></a>
-  <a href="https://github.com/qoddit/balance/blob/main/LICENSE"><img alt="License: AGPL-3.0-or-later" src="https://img.shields.io/badge/license-AGPL--3.0--or--later-blue?style=for-the-badge" height="28"></a>
-  <a href="https://github.com/qoddit/balance/commits/main"><img alt="Last commit" src="https://img.shields.io/github/last-commit/qoddit/balance.svg?style=for-the-badge" height="28"></a>
-  <a href="https://github.com/qoddit/balance"><img alt="Repository" src="https://img.shields.io/badge/source-GitHub-181717?logo=github&amp;style=for-the-badge" height="28"></a>
+<a href="https://github.com/qoddit/balance/actions/workflows/release.yml"><img alt="Release workflow" src="https://img.shields.io/github/actions/workflow/status/qoddit/balance/release.yml?style=for-the-badge&amp;label=release&labelColor=000000&amp;logo=github"></a>
+  <a href="https://github.com/qoddit/balance/releases"><img alt="GitHub releases" src="https://img.shields.io/badge/releases-GitHub-181717?logo=github&amp;style=for-the-badge&amp;labelColor=000000&amp" height="28"></a>
+  <a href="https://github.com/qoddit/balance/commits/main"><img alt="Last commit" src="https://img.shields.io/github/last-commit/qoddit/balance.svg?style=for-the-badge&amp;labelColor=000000" height="28"></a>
+  <a href="https://github.com/qoddit/balance"><img alt="Repository" src="https://img.shields.io/badge/source-GitHub-181717?logo=github&amp;style=for-the-badge&amp;labelColor=000000" height="28"></a>
+  <a href="https://github.com/qoddit/balance/blob/main/LICENSE"><img alt="License: AGPL-3.0-or-later" src="https://img.shields.io/badge/license-AGPL--3.0--or--later-blue?style=for-the-badge&amp;labelColor=000000" height="28"></a>
 </p>
 
 <img width="1470" height="956" alt="balance tui" src="https://github.com/user-attachments/assets/6cfc632c-9255-4a0b-ac4c-155458bd542d" />
